@@ -14,20 +14,10 @@
 @endsection
 @section('content')
 <div class="btn__voltar">
-    <a href="{{ route('blog.index') }}">Voltar</a>
+    <a href="{{ route('blog.index') }}" title="voltar">Voltar</a>
 </div>
 <section class="posts">
     <div class="posts__card">
-        <a href="{{ route('post.like', $post->slug) }}">
-            <div class="posts__like">
-                @if($post->like > 0)
-
-                @else
-
-
-                @endif
-            </div>
-        </a>
         <form action="{{ route('post.like', $post) }}" method="POST" style="display:flex;justify-content:flex-end">
             @csrf
             <button type="submit" style="border:none;background:transparent;font-size:1.3rem;margin-bottom:20px;cursor:pointer">
@@ -39,7 +29,7 @@
             </button>
         </form>
 
-        <h2>{{$post->title}}</h2>
+        <h1>{{$post->title}}</h1>
         <div class="posts__footer">
             <small>Publicado em: {{ $post->created_at }}</small>
             <small> Autor: {{ $post->author }}</small>
@@ -47,18 +37,18 @@
         <p>{!! $post->description !!}</p>
         @if($post->image)
         <div class="posts__imagem">
-            <img src="{{ asset('storage/'. $post->image)}}" />
+            <img src="{{ asset('storage/'. $post->image)}}" alt="{{ $post->title }}" />
         </div>
         @endif
         {!! $post->content!!}
     </div>
 
     <!-- Comentários -->
-    <h3 id="comments" class="text-xl font-semibold mb-4 mt-4">Comentários</h3>
+    <h2 id="comments" class="text-xl font-semibold mb-4 mt-4">Comentários</h2>
     <form id="comment-form" action="{{ route('post.comment', $post) }}" method="POST" class="comment-form mb-6">
         @csrf
         <textarea name="body" rows="3" required class="w-full p-2 border-2 border-[#51515e] rounded mb-2 bg-[#2f3134]"></textarea>
-        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Comentar</button>
+        <button type="submit" class="px-4 py-2 bg-green-900 text-white rounded">Comentar</button>
     </form>
 
     @foreach($post->comments()->whereNull('parent_id')->get() as $comment)
@@ -82,7 +72,7 @@
             @csrf
             <textarea name="body" rows="2" required class="w-full p-2 border border-[#1e1e2e] rounded mb-2  bg-[#202024]"></textarea>
             <input type="hidden" name="parent_id" value="{{ $comment->id }}">
-            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Responder</button>
+            <button type="submit" class="px-4 py-2 bg-blue-900 text-white rounded">Responder</button>
         </form>
 
         <!-- Botão de Exclusão -->

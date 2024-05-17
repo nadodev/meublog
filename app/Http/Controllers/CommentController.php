@@ -16,12 +16,12 @@ class CommentController extends Controller
             'parent_id' => 'nullable|exists:comments,id'
         ]);
 
-        if ($request->filled('parent_id')) {
-            $parentComment = Comment::findOrFail($request->parent_id);
-            if ($parentComment->user_id === Auth::id()) {
-                return back()->with('error', 'Você não pode responder ao seu próprio comentário.');
-            }
-        }
+        // if ($request->filled('parent_id')) {
+        //     $parentComment = Comment::findOrFail($request->parent_id);
+        //     if ($parentComment->user_id === Auth::id()) {
+        //         return back()->with('error', 'Você não pode responder ao seu próprio comentário.');
+        //     }
+        // }
 
 
         Comment::create([

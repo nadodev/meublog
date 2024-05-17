@@ -21,9 +21,9 @@
             @csrf
             <button type="submit" style="border:none;background:transparent;font-size:1.3rem;margin-bottom:20px;cursor:pointer">
                 @if($post->likes()->where('user_id', Auth::id())->exists())
-                <i class="ri-heart-fill"></i> {{ $post->likes()->count() }} {{ $post->likes()->count() > 1 ? 'Likes': 'Like' }}
+                <i class="ri-heart-fill text-red-400"></i> {{ $post->likes()->count() }} {{ $post->likes()->count() > 1 ? 'Likes': 'Like' }}
                 @else
-                <i class="ri-heart-line"></i> {{ $post->likes()->count() }} {{ $post->likes()->count() > 1 ? 'Likes': 'Like' }}
+                <i class="ri-heart-line text-red-400"></i> {{ $post->likes()->count() }} {{ $post->likes()->count() > 1 ? 'Likes': 'Like' }}
                 @endif
             </button>
         </form>

@@ -190,6 +190,14 @@ p {
   font-size: 1rem;
 }
 
+.btn__voltar {
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: rgb(46, 46, 51);
+  display: inline-block;
+  border-radius: 10px;
+}
+
 /*CONTAINER*/
 .container {
   margin: 0 auto;
@@ -237,7 +245,7 @@ p {
 /* TABLET - 600px*/
 /* MOBILE - 400px*/
 .posts {
-  margin-top: 3rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
 }
 .posts__imagem {

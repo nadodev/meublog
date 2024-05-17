@@ -2,6 +2,9 @@
 
 
 @section('content')
+<div class="btn__voltar">
+<a href="{{ route('blog.index') }}">Voltar</a>
+</div>
 <section class="posts">
     <div class="posts__card">
        <a href="{{ route('blog.curtir', $post->slug) }}">

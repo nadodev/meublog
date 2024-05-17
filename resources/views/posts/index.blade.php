@@ -2,9 +2,6 @@
 
 
 @section('content')
-<div class="teste">
-    <h1 class="title">Posts do Blog</h1>
-</div>
 @php
     use Illuminate\Support\Str;
 @endphp

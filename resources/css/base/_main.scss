@@ -48,6 +48,15 @@ p {
 }
 
 
+.btn__voltar {
+    margin-top: 20px;
+    padding:5px 20px;
+    background-color: rgb(46, 46, 51);
+    display: inline-block;
+    border-radius: 10px;
+
+}
+
 // DISPLAY FLEX
 @mixin FlexBetCen {
    display: flex;

@@ -11,4 +11,13 @@ class Blog extends Model
 
 
     protected $fillable = ['title','slug', 'author', 'published_at', 'description', 'content', 'image', 'status', 'like'];
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

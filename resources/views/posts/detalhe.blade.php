@@ -42,7 +42,9 @@
         @endif
         {!! $post->content!!}
     </div>
-
+    @if(session('error'))
+        <div class="alert alert-danger mt-4">{{ session('error') }}</div>
+    @endif
     <!-- Comentários -->
     <h2 id="comments" class="text-xl font-semibold mb-4 mt-4">Comentários</h2>
     <form id="comment-form" action="{{ route('post.comment', $post) }}" method="POST" class="comment-form mb-6">

@@ -175,11 +175,15 @@ body * {
   font-family: "Poppins", sans-serif;
 }
 
-.shiki {
+.shiki, .language-php, .language-javascript {
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  background-color: #1e1e2e;
+}
+.shiki code, .language-php code, .language-javascript code {
+  color: #9c8fdb;
 }
 
 p {
@@ -232,6 +236,10 @@ p {
 /* TABLET BIG - 900px*/
 /* TABLET - 600px*/
 /* MOBILE - 400px*/
+.posts {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .posts__imagem {
   padding-top: 1rem;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\BlogResource\Pages;
 use App\Filament\Resources\BlogResource\RelationManagers;
 use App\Models\Blog;
@@ -57,25 +58,14 @@ class BlogResource extends Resource
                         'table',
                         'undo',
                     ]),
-                Forms\Components\MarkdownEditor::make('content')
-                ->toolbarButtons([
-                    'attachFiles',
-                    'blockquote',
-                    'bold',
-                    'bulletList',
-                    'codeBlock',
-                    'h2',
-                    'h3',
-                    'italic',
-                    'link',
-                    'orderedList',
-                    'redo',
-                    'strike',
-                    'underline',
-                    'undo',
-                ])
-                ->fileAttachmentsDisk('public')
-                ->fileAttachmentsVisibility('public'),
+                    TinyEditor::make('content')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDirectory('uploads')
+                    ->profile('default|simple|full|minimal|none|custom')
+                    ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
+                    ->columnSpan('full')
+                    ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Imagem de Capa')
                     ->image(),

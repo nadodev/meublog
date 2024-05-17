@@ -25,10 +25,8 @@
                 <img src="{{ asset('storage/'. $post->image)}}" />
             </div>
           @endif
+{!! $post->content!!}
 
-            <x-markdown>
-            {!! $post->content!!}
-            </x-markdown>
     </div>
 </section>
 @endsection

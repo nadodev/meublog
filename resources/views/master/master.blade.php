@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog</title>
+    <meta name="description" content="Pagina destinada para publicações sobre técnologia">
+    <meta name="keywords" content="blog, tecnologia, php, portfolio, programacao">
+    <meta name="robots" content="index, follow">
+    <title>Leonardo Geja - Blog</title>
+    <link rel="canonical" href="{{ url()->current() }}">
+    <!-- Open Graph Tags -->
+
+    <!-- Twitter Cards -->
+    @yield('twitter')
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('dist/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>

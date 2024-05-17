@@ -1,5 +1,15 @@
 @extends('master.master')
 
+@section('twitter')
+    <meta property="og:title" content="Pagina Inicial do Blog">
+    <meta property="og:description" content="Pagina onde contem a lista de posts">
+    <meta property="og:url" content="{{ url()->current() }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@leonardogeja">
+    <meta name="twitter:title"content="Pagina Inicial do Blog">
+    <meta name="twitter:description" content="Pagina onde contem a lista de posts">
+@endsection
 
 @section('content')
 @php

@@ -1,6 +1,17 @@
 @extends('master.master')
 
+@section('twitter')
+    <meta property="og:title" content="{{ $post->title }}">
+    <meta property="og:description" content="{{ $post->description }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('storage/'. $post->image)}}">
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@leonardogeja">
+    <meta name="twitter:title" content="{{ $post->title }}">
+    <meta name="twitter:description" content="{{ $post->description }}">
+    <meta name="twitter:image" content="{{ asset('storage/'. $post->image)}}">
+@endsection
 @section('content')
 <div class="btn__voltar">
     <a href="{{ route('blog.index') }}">Voltar</a>

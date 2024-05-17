@@ -6,11 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-
-Route::get('/', function () {
-    $markdown = <<<'MARKDOWN'
-
-    MARKDOWN;
-
-    return view('markdown', ['markdown' => $markdown]);
-});
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/curtir/{slug}', [BlogController::class, 'curtir'])->name('blog.curtir');

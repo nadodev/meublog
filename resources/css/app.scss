@@ -1,5 +1,2 @@
-.teste {
- h1 {
-    background-color: red;;
- }
-}
+@use 'base/base.scss';
+@use 'layout/home.scss';

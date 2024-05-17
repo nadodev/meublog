@@ -7,12 +7,11 @@ use App\Filament\Resources\BlogResource\RelationManagers;
 use App\Models\Blog;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Support\Str;
 class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
@@ -25,15 +24,39 @@ class BlogResource extends Resource
             ->columns(1)
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->label('Titulo')
+                    ->live(debounce:'1000')
+                    ->afterStateUpdated(function (Set $set, ?string $state) {
+                            $set('slug', Str::slug($state));
+                    }),
+
+                    Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('author')
+                    ->label('Slug')
+                    ->readOnly()
+                    ->unique(ignoreRecord: true)
+                    ->maxLength(150),
+                    Forms\Components\TextInput::make('author')
                     ->label('Autor')
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('published_at')
                     ->label('Data de Publicação')
                     ->required(),
+                    Forms\Components\RichEditor::make('description')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'heading',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'table',
+                        'undo',
+                    ]),
                 Forms\Components\MarkdownEditor::make('content')
                 ->toolbarButtons([
                     'attachFiles',
@@ -41,13 +64,14 @@ class BlogResource extends Resource
                     'bold',
                     'bulletList',
                     'codeBlock',
-                    'heading',
+                    'h2',
+                    'h3',
                     'italic',
                     'link',
                     'orderedList',
                     'redo',
                     'strike',
-                    'table',
+                    'underline',
                     'undo',
                 ])
                 ->fileAttachmentsDisk('public')

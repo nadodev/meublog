@@ -1,0 +1,156 @@
+@use 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+
+
+// CONTAINER VARIABLE
+$largureContainer: reset.toRem(1080); // Adicionar 40px no valor do container para uso de padding no responsivo
+
+// VARIABLES
+$ColorMain: #094066;
+$ColorZero: #D00A11;
+$ColorOne: #000000;
+$ColorTwo: #C4C4C4;
+$ColorThree: #F6F6F6;
+$ColorTheme: rgb(29, 30, 32);
+
+:root {
+   --gradient-site: linear-gradient(to right, #094066 0%, #1a689f 100%);
+}
+
+/**/
+body {
+   background: $ColorTheme;
+   font-family: 'Poppins', sans-serif;
+   color: rgb(155, 156, 157);
+   line-height: 1.4;
+   font-weight: 300;
+   letter-spacing: 0px;
+}
+
+body * {
+   color:rgb(155, 156, 157);
+   font-family: 'Poppins', sans-serif;
+}
+.shiki {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+p {
+   font-size: reset.toRem(16);
+}
+
+
+// DISPLAY FLEX
+@mixin FlexBetCen {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+@mixin FlexCenCen {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+// BREAKPOINTS
+
+@mixin breakpoint($point) {
+   @if $point ==smashDesktopLarge {
+      @media screen and (max-width: 87.5rem) {
+         @content ;
+      }
+
+      // 1400px
+   }
+
+   @else if $point ==smashDesktop {
+      @media (max-width: 75rem) {
+         @content ;
+      }
+
+      //1200px
+   }
+
+   @else if $point ==smashLaptop {
+      @media (max-width: 64rem) {
+         @content ;
+      }
+
+      //1024px
+   }
+
+   @else if $point ==smashTabletBig {
+      @media (max-width: 56.25rem) {
+         @content ;
+      }
+
+      //900px
+   }
+
+   @else if $point ==smashTablet {
+      @media (max-width: 37.5rem) {
+         @content ;
+      }
+
+      //600px
+   }
+
+   @else if $point ==smashMobile {
+      @media (max-width: 25rem) {
+         @content ;
+      }
+
+      //400px
+   }
+
+   @else if $point ==smashContainer {
+      @media (max-width: $largureContainer) {
+         @content ;
+      }
+   }
+}
+
+/*CONTAINER*/
+
+.container {
+   margin: 0 auto;
+   max-width: $largureContainer;
+   padding-left: 20px;
+   padding-right: 20px;
+}
+
+.swiper {
+   position: relative;
+   overflow: hidden;
+}
+
+// Scroll bar
+::-webkit-scrollbar {
+   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: #ede4db;
+}
+
+::-webkit-scrollbar-thumb {
+   background: $ColorThree;
+   border-radius: 30px;
+}
+
+::-webkit-scrollbar-thumb:active {
+   background: $ColorMain;
+}
+
+.grecaptcha-badge {
+   visibility: collapse;
+   z-index: -9999;
+}
+
+.alert.alert-danger {
+   font-size: reset.toRem(14);
+   color: #d30202;
+}

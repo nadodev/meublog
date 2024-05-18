@@ -31,7 +31,7 @@ class CommentController extends Controller
             'parent_id' => $request->parent_id,
         ]);
 
-        return back();
+        return back()->with('success', 'Comentario cadastrado com sucesso! agora só esperar passar pela aprovação');
     }
 
     public function destroy(Comment $comment)

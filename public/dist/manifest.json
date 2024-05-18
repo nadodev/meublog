@@ -1,6 +1,6 @@
 {
   "resources/js/app.js": {
-    "file": "meublog.js",
+    "file": "meublog.umd.cjs",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

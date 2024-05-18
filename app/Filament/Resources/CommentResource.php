@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Section;
+use App\Models\{User, Blog};
 
 class CommentResource extends Resource
 {
@@ -22,22 +24,33 @@ class CommentResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
+        ->columns(1)
             ->schema([
-                Forms\Components\Textarea::make('body')
+                Forms\Components\TextInput::make('body')
+                    ->label('Titulo')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('blog_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('parent_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->maxLength(255)
-                    ->default('pending'),
+                    Forms\Components\Select::make('user_id')
+                    ->label('Usuario')
+                    ->options(User::all()->pluck('name', 'id'))
+                    ->searchable(),
+                Forms\Components\Select::make('blog_id')
+                    ->label('Post')
+                    ->options(Blog::all()->pluck('title', 'id'))
+                    ->searchable(),
+                Forms\Components\Hidden::make('parent_id'),
+            Section::make()
+            ->schema([
+                Forms\Components\ToggleButtons::make('status')
+                ->options([
+                    'pending' => 'Pendente',
+                    'published' => 'Publicado'
+                ])
+                ->icons([
+                    'pending' => 'heroicon-o-pencil',
+                    'published' => 'heroicon-o-check-circle',
+                ])->inline()
+            ]),
             ]);
     }
 
@@ -45,23 +58,16 @@ class CommentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('blog_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('parent_id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('user.name'),
+                Tables\Columns\TextColumn::make('post.title'),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
+                ->dateTime('d/M/Y h:i:s')
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->dateTime('D-m-Y h:m')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -70,6 +76,7 @@ class CommentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

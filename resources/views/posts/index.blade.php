@@ -50,14 +50,14 @@
                     </div>
                 </a>
             @endforeach
-            <h3 class="text-2xl font-bold mt-4">Categorias</h3>
+            {{-- <h3 class="text-2xl font-bold mt-4">Categorias</h3>
             @foreach ($categorias as $category)
                 <a href="{{ route('blog.show', $category->id) }}" class="posts__content border-b border-zinc-800 pb-2">
                     <div class="bg-zinc-900">
                         <h3 class="text-sm font-semibold text-white ">{{ $category->title }}</h3>
                     </div>
                 </a>
-            @endforeach
+            @endforeach --}}
         </section>
     </div>
 @endsection

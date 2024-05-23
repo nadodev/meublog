@@ -24,8 +24,16 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
+                ->live(debounce:'1000')
+                ->afterStateUpdated(function (Set $set, ?string $state) {
+                        $set('slug', Str::slug($state));
+                }),
+            Forms\Components\TextInput::make('slug')
+                ->required()
+                ->label('Slug')
+                ->readOnly()
+                ->unique(ignoreRecord: true)
+                ->maxLength(150),
                 Forms\Components\TextInput::make('status')
                     ->required()
                     ->maxLength(255)

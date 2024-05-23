@@ -26,7 +26,9 @@
                 <div class="posts__footer">
                     <small><b class="font-semibold text-white">Autor:</b> {{ $post->author }}</small><br>
                     <small><b class="font-semibold text-white">Publicado em:</b> {{ $post->created_at }}</small><br>
-                    <small><b class="font-semibold text-white">Categoria:</b> {{ $post->category->title }}</small>
+                    @if (isset($post->category->title))
+                        <small><b class="font-semibold text-white">Categoria:</b> {{ $post->category->title }}</small>
+                    @endif
                 </div>
                 <form action="{{ route('post.like', $post) }}" method="POST"
                     style="display:flex;justify-content:flex-end">

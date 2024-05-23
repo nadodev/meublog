@@ -18,25 +18,31 @@
     </div>
     <section class="posts">
         <div class="posts__card">
-            <form action="{{ route('post.like', $post) }}" method="POST" style="display:flex;justify-content:flex-end">
-                @csrf
-                <button type="submit"
-                    style="border:none;background:transparent;font-size:1.3rem;margin-bottom:20px;cursor:pointer">
-                    @if ($post->likes()->where('user_id', Auth::id())->exists())
-                        <i class="ri-heart-fill text-red-400"></i> {{ $post->likes()->count() }}
-                        {{ $post->likes()->count() > 1 ? 'Likes' : 'Like' }}
-                    @else
-                        <i class="ri-heart-line text-red-400"></i> {{ $post->likes()->count() }}
-                        {{ $post->likes()->count() > 1 ? 'Likes' : 'Like' }}
-                    @endif
-                </button>
-            </form>
 
-            <h1>{{ $post->title }}</h1>
-            <div class="posts__footer">
-                <small>Publicado em: {{ $post->created_at }}</small>
-                <small> Autor: {{ $post->author }}</small>
+
+            <h1 class="text-center mb-6">{{ $post->title }}</h1>
+            <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
+            <div class="flex justify-between items-center">
+                <div class="posts__footer">
+                    <small><b class="font-semibold text-white">Autor:</b> {{ $post->author }}</small><br>
+                    <small><b class="font-semibold text-white">Publicado em:</b> {{ $post->created_at }}</small><br>
+                    <small><b class="font-semibold text-white">Categoria:</b> {{ $post->category->title }}</small>
+                </div>
+                <form action="{{ route('post.like', $post) }}" method="POST"
+                    style="display:flex;justify-content:flex-end">
+                    @csrf
+                    <button type="submit" style="border:none;background:transparent;font-size:1.3rem;cursor:pointer">
+                        @if ($post->likes()->where('user_id', Auth::id())->exists())
+                            <i class="ri-heart-fill text-red-400"></i> {{ $post->likes()->count() }}
+                            {{ $post->likes()->count() > 1 ? 'Likes' : 'Like' }}
+                        @else
+                            <i class="ri-heart-line text-red-400"></i> {{ $post->likes()->count() }}
+                            {{ $post->likes()->count() > 1 ? 'Likes' : 'Like' }}
+                        @endif
+                    </button>
+                </form>
             </div>
+            <div class="h-px bg-zinc-700 mt-2"></div>
             <p>{!! $post->description !!}</p>
             @if ($post->image)
                 <div class="posts__imagem">
@@ -44,7 +50,18 @@
                 </div>
             @endif
             {!! $post->content !!}
+            <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
+            <div class="flex items-center gap-2">
+                <span>Tags:</span>
+                @foreach ($post->tags as $tag)
+                    <div class="p-1 bg-zinc-100 text-zinc-500 w-fit text-sm font-semibold">
+                        {{ $tag }}
+                    </div>
+                @endforeach
+            </div>
+            <div class="h-px bg-zinc-700 mt-2"></div>
         </div>
+
         @if (session('error'))
             <div class="alert alert-danger mt-4">{{ session('error') }}</div>
         @endif

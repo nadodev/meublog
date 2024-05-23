@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\BlogResource\Pages;
 use App\Filament\Resources\BlogResource\RelationManagers;
-use App\Models\Blog;
+use App\Models\{Blog, Tag, Category};
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
@@ -29,20 +29,24 @@ class BlogResource extends Resource
                     ->afterStateUpdated(function (Set $set, ?string $state) {
                             $set('slug', Str::slug($state));
                     }),
-
-                    Forms\Components\TextInput::make('slug')
+                Forms\Components\TextInput::make('slug')
                     ->required()
                     ->label('Slug')
                     ->readOnly()
                     ->unique(ignoreRecord: true)
                     ->maxLength(150),
-                    Forms\Components\TextInput::make('author')
+                Forms\Components\TagsInput::make('tags')->reorderable(),
+                Forms\Components\Select::make('category_id')
+                    ->label('Categoria')
+                    ->options(Category::all()->pluck('title', 'id'))
+                    ->searchable(),
+                Forms\Components\TextInput::make('author')
                     ->label('Autor')
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('published_at')
                     ->label('Data de Publicação')
                     ->required(),
-                    Forms\Components\RichEditor::make('description')
+                Forms\Components\RichEditor::make('description')
                     ->toolbarButtons([
                         'attachFiles',
                         'blockquote',
@@ -58,7 +62,7 @@ class BlogResource extends Resource
                         'table',
                         'undo',
                     ]),
-                    TinyEditor::make('content')
+                TinyEditor::make('content')
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsVisibility('public')
                     ->fileAttachmentsDirectory('uploads')

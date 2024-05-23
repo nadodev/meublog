@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
-use App\Models\Like;
+use App\Models\{Blog, Like, Category};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -14,10 +13,20 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Blog::get();
+        $posts = Blog::orderBy('created_at', 'asc')->get();
+        $categorias = Category::orderBy('created_at', 'asc')->get();
+
+        $postCount = Blog::withCount('likes')
+        ->orderByDesc('likes_count')
+        ->take(3)
+        ->get();
 
 
-        return view('posts.index', compact('posts'));
+        $postRecentes = Blog::orderBy('created_at', 'asc')
+        ->take(3)
+        ->get();
+
+        return view('posts.index', compact('posts','postCount','postRecentes','categorias'));
     }
 
 

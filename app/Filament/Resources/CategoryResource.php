@@ -8,6 +8,7 @@ use App\Models\Category;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Forms\Set;
 use Filament\Tables;
 use Illuminate\Support\Str;
 use Filament\Tables\Table;
@@ -34,7 +35,7 @@ class CategoryResource extends Resource
                 ->label('Slug')
                 ->readOnly()
                 ->unique(ignoreRecord: true)
-                ->maxLength(150),
+                ->maxLength(250),
                 Forms\Components\TextInput::make('status')
                     ->required()
                     ->maxLength(255)

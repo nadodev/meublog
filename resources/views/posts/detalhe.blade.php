@@ -18,14 +18,18 @@
     </div>
     <section class="posts">
         <div class="posts__card">
-
+            @php
+                use Carbon\Carbon;
+                $date = Carbon::parse($post->created_at); // Garantindo que $date é um objeto Carbon
+            @endphp
 
             <h1 class="text-center mb-6">{{ $post->title }}</h1>
             <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
             <div class="flex justify-between items-center">
                 <div class="posts__footer">
                     <small><b class="font-semibold text-white">Autor:</b> {{ $post->author }}</small><br>
-                    <small><b class="font-semibold text-white">Publicado em:</b> {{ $post->created_at }}</small><br>
+                    <small><b class="font-semibold text-white">Publicado em:</b>
+                        {{ $date->format('d/m/Y h:i:s') }}</small><br>
                     @if (isset($post->category->title))
                         <small><b class="font-semibold text-white">Categoria:</b> {{ $post->category->title }}</small>
                     @endif

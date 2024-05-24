@@ -23,7 +23,7 @@
         $date = Carbon::parse($post->created_at); // Garantindo que $date é um objeto Carbon
         @endphp
 
-        <h1 class="mb-6 text-5xl font-bold">{{ $post->title }}</h1>
+        <h1 class="mb-6 font-bold">{{ $post->title }}</h1>
         <div class="h-px bg-zinc-100 mb-2 mt-6"></div>
         <div class="flex justify-between sm:items-center items-start flex-col sm:flex-row">
             <div class="posts__footer">

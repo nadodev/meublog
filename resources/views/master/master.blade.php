@@ -28,7 +28,7 @@
         <header class="w-full border-b border-solid border-zinc-200 flex justify-between items-center">
            <a href="{{ route('blog.index') }}">
                 <h3 class="pt-4 pb-2">
-                        leonardo.
+                        Blog.
                 </h3>
            </a>
            <nav>

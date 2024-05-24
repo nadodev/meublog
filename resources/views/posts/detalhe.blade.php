@@ -56,16 +56,18 @@
                 </div>
             @endif
             {!! $post->content !!}
-            <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
-            <div class="flex items-center gap-2">
-                <span>Tags:</span>
-                @foreach ($post->tags as $tag)
-                    <div class="p-1 bg-zinc-100 text-zinc-500 w-fit text-sm font-semibold">
-                        {{ $tag }}
-                    </div>
-                @endforeach
-            </div>
-            <div class="h-px bg-zinc-700 mt-2"></div>
+            @if (isset($post->tags))
+                <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
+                <div class="flex items-center gap-2">
+                    <span>Tags:</span>
+                    @foreach ($post->tags as $tag)
+                        <div class="p-1 bg-zinc-100 text-zinc-500 w-fit text-sm font-semibold">
+                            {{ $tag }}
+                        </div>
+                    @endforeach
+                </div>
+                <div class="h-px bg-zinc-700 mt-2"></div>
+            @endif
         </div>
 
         @if (session('error'))

@@ -22,7 +22,8 @@
                     <div class="posts__card">
                         <h2>{{ $post->title }}</h2>
                         <p>{{ strip_tags(Str::limit($post->description, 100)) }}</p>
-                        <div class="posts__footer flex justify-between items-center">
+                        <div
+                            class="posts__footer flex justify-between items-center border-t-[1px] border-[#3a3a40] border-solid mt-4 pt-2">
                             <div>
                                 <small>Publicado {{ $post->created_at->diffForHumans() }}</small> -
                                 <small> {{ $post->author }}</small>

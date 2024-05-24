@@ -55,7 +55,7 @@
                     <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" />
                 </div>
             @endif
-            {!! $post->content !!}
+            <x-markdown>{!! $post->content !!}</x-markdown>
             @if (isset($post->tags))
                 <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
                 <span>Tags:</span>

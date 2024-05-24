@@ -7,6 +7,7 @@ use App\Filament\Resources\BlogResource\Pages;
 use App\Filament\Resources\BlogResource\RelationManagers;
 use App\Models\{Blog, Tag, Category};
 use Filament\Forms;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
@@ -62,14 +63,22 @@ class BlogResource extends Resource
                         'table',
                         'undo',
                     ]),
-                TinyEditor::make('content')
-                    ->fileAttachmentsDisk('public')
-                    ->fileAttachmentsVisibility('public')
-                    ->fileAttachmentsDirectory('uploads')
-                    ->profile('default|simple|full|minimal|none|custom')
-                    ->rtl() // Set RTL or use ->direction('auto|rtl|ltr')
-                    ->columnSpan('full')
-                    ->required(),
+                    MarkdownEditor::make('content')
+                    ->toolbarButtons([
+                        'attachFiles',
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'heading',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'table',
+                        'undo',
+                    ]),
                 Forms\Components\FileUpload::make('image')
                     ->label('Imagem de Capa')
                     ->image(),

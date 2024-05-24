@@ -28,7 +28,9 @@ class BlogController extends Controller
         ->take(3)
         ->get();
 
-        $user = User::findOrFail(3);
+
+
+        $user = User::where('email', 'contato@leonardogeja.com.br')->first();
 
         $gravatarUrl = Gravatar::get($user->email);
 
@@ -99,7 +101,7 @@ class BlogController extends Controller
         ->take(3)
         ->get();
 
-        $user = User::findOrFail(3);
+        $user = User::where('email', 'contato@leonardogeja.com.br')->first();
 
         $gravatarUrl = Gravatar::get($user->email);
 

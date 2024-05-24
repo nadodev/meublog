@@ -25,7 +25,7 @@
 
             <h1 class="text-center mb-6">{{ $post->title }}</h1>
             <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between sm:items-center items-start flex-col sm:flex-row">
                 <div class="posts__footer">
                     <small><b class="font-semibold text-white">Autor:</b> {{ $post->author }}</small><br>
                     <small><b class="font-semibold text-white">Publicado em:</b>
@@ -34,7 +34,7 @@
                         <small><b class="font-semibold text-white">Categoria:</b> {{ $post->category->title }}</small>
                     @endif
                 </div>
-                <form action="{{ route('post.like', $post) }}" method="POST"
+                <form action="{{ route('post.like', $post) }}" method="POST" class="mt-4 sm:mt-0"
                     style="display:flex;justify-content:flex-end">
                     @csrf
                     <button type="submit" style="border:none;background:transparent;font-size:1.3rem;cursor:pointer">
@@ -58,8 +58,9 @@
             {!! $post->content !!}
             @if (isset($post->tags))
                 <div class="h-px bg-zinc-700 mb-2 mt-6"></div>
-                <div class="flex items-center gap-2">
-                    <span>Tags:</span>
+                <span>Tags:</span>
+                <div class="flex items-center gap-2 flex-wrap">
+
                     @foreach ($post->tags as $tag)
                         <div class="p-1 bg-zinc-100 text-zinc-500 w-fit text-sm font-semibold">
                             {{ $tag }}

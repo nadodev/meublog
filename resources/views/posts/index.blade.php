@@ -22,9 +22,14 @@
                     <div class="posts__card">
                         <h2>{{ $post->title }}</h2>
                         <p>{{ strip_tags(Str::limit($post->description, 100)) }}</p>
-                        <div class="posts__footer">
-                            <small>Publicado {{ $post->created_at->diffForHumans() }}</small>
-                            <small> {{ $post->author }}</small>
+                        <div class="posts__footer flex justify-between items-center">
+                            <div>
+                                <small>Publicado {{ $post->created_at->diffForHumans() }}</small> -
+                                <small> {{ $post->author }}</small>
+                            </div>
+                            @if (isset($post->category->title))
+                                <small class=""> Categoria: {{ $post->category->title }}</small>
+                            @endif
                         </div>
                     </div>
                 </a>

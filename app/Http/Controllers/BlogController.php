@@ -28,7 +28,7 @@ class BlogController extends Controller
         ->take(3)
         ->get();
 
-        $user = User::findOrFail(2);
+        $user = User::findOrFail(3);
 
         $gravatarUrl = Gravatar::get($user->email);
 
@@ -99,7 +99,7 @@ class BlogController extends Controller
         ->take(3)
         ->get();
 
-        $user = User::findOrFail(2);
+        $user = User::findOrFail(3);
 
         $gravatarUrl = Gravatar::get($user->email);
 

@@ -16,8 +16,10 @@
         use Illuminate\Support\Str;
 
     @endphp
+
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
         <section class="posts col-span-3">
+
             @foreach ($posts as $post)
                 <a href="{{ route('blog.show', $post->slug) }}" class="posts__content border-t-[1px] border-zinc-200 border-solid">
                     <div class="posts__card">

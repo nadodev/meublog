@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Blog, Like, Category};
+use App\Models\{Blog, Like, Category, User};
+use Creativeorange\Gravatar\Facades\Gravatar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -26,7 +27,13 @@ class BlogController extends Controller
         ->take(3)
         ->get();
 
-        return view('posts.index', compact('posts','postCount','postRecentes','categorias'));
+        $user = User::findOrFail(2);
+
+
+        $gravatarUrl = Gravatar::get($user->email);
+
+
+        return view('posts.index', compact('posts','postCount','postRecentes','categorias', 'gravatarUrl'));
     }
 
 

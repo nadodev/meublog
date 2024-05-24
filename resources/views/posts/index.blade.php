@@ -14,6 +14,7 @@
 @section('content')
     @php
         use Illuminate\Support\Str;
+
     @endphp
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
         <section class="posts col-span-3">
@@ -22,7 +23,7 @@
                     <div class="posts__card">
                         <div class="flex items-center gap-2 mb-6">
                             <div class="rounded-full w-6 h-6 bg-zinc-400 overflow-hidden">
-                                    <img src="https://github.com/nadodev.png" alt="" class="w-6 h-6 object-cover">
+                                    <img src="{{ $gravatarUrl }}" alt="" class="w-6 h-6 object-cover">
                             </div>
                             <small class="block"> {{ $post->author }}</small>
                         </div>

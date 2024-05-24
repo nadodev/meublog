@@ -83,14 +83,25 @@
         <textarea name="body" rows="3" required class="w-full p-2 shadow-custom border border-[#eee] rounded mb-2"></textarea>
         <button type="submit" class="px-4 py-2 bg-zinc-800 text-white rounded">Comentar</button>
     </form>
+
+    @php
+            use Creativeorange\Gravatar\Facades\Gravatar;
+
+    @endphp
+
     @if ($post->comments()->whereNull('parent_id')->where('status', 'published')->exists())
     @foreach ($post->comments()->whereNull('parent_id')->where('status', 'published')->get() as $comment)
+
+    @php
+            $gravatarUrl = Gravatar::get( $comment->user->email);
+
+    @endphp
     <div class="comment p-4  mb-4">
         <div class="p-4 bg-zinc-50">
             <div class="flex items-center gap-2 ">
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="rounded-full w-14 h-14 bg-zinc-400">
-
+                    <div class="rounded-full w-14 h-14 bg-zinc-400 overflow-hidden">
+                        <img src="{{ $gravatarUrl }}" alt="Gravatar do usuário">
                     </div>
                     <div>
                         <strong class=" text-zinc-900 block">{{ $comment->user->name }} </strong>
@@ -121,11 +132,15 @@
 
         <!-- Respostas -->
         @foreach ($comment->replies as $reply)
+        @php
+            $gravatarUrlReply = Gravatar::get( $reply->user->email);
+
+        @endphp
         <div class="comment--reply p-4  mt-4 ml-10 border-l-2 border-solid border-zinc-300 pl-4 bg-zinc-50">
             <div class=" flex items-center gap-2 justify-between ">
                 <div class="flex items-center gap-2 mb-4">
-                    <div class="rounded-full w-14 h-14 bg-zinc-400">
-
+                    <div class="rounded-full w-14 h-14 bg-zinc-400 overflow-hidden">
+                        <img src="{{ $gravatarUrlReply  }}" alt="Gravatar do usuário">
                     </div>
                     <div>
                         <strong class=" text-zinc-900 block">{{ $reply->user->name }} </strong>

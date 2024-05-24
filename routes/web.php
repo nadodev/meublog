@@ -31,3 +31,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blog.category.show');

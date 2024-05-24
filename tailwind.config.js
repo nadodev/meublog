@@ -17,6 +17,9 @@ export default {
             containers: {
                 '2xl': '1240px',
             },
+            boxShadow: {
+                'custom': 'rgba(0, 0, 0, 0.12) 0px 2px 8px',
+              },
         },
     },
 

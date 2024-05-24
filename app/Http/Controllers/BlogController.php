@@ -13,7 +13,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Blog::orderBy('created_at', 'asc')->get();
+        $posts = Blog::orderBy('created_at', 'desc')->get();
         $categorias = Category::orderBy('created_at', 'asc')->get();
 
         $postCount = Blog::withCount('likes')

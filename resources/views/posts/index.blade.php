@@ -18,33 +18,37 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
         <section class="posts col-span-3">
             @foreach ($posts as $post)
-                <a href="{{ route('blog.show', $post->slug) }}" class="posts__content">
+                <a href="{{ route('blog.show', $post->slug) }}" class="posts__content border-t-[1px] border-zinc-200 border-solid">
                     <div class="posts__card">
-                        <h2>{{ $post->title }}</h2>
-                        <p>{{ strip_tags(Str::limit($post->description, 100)) }}</p>
-                        <div
-                            class="posts__footer flex justify-between items-start border-t-[1px] border-[#3a3a40] border-solid mt-4 pt-2 md:flex-row flex-col md:items-center">
-                            <div>
-                                <small>Publicado {{ $post->created_at->diffForHumans() }}</small> -
-                                <small> {{ $post->author }}</small>
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="rounded-full w-6 h-6 bg-zinc-400 overflow-hidden">
+                                    <img src="https://github.com/nadodev.png" alt="" class="w-6 h-6 object-cover">
                             </div>
-                            @if (isset($post->category->title))
-                                <small class=""> Categoria: {{ $post->category->title }}</small>
-                            @endif
+                            <small class="block"> {{ $post->author }}</small>
+                        </div>
+                        <h2 class="text-3xl font-bold">{{ $post->title }}</h2>
+                        <p>{{ strip_tags(Str::limit($post->description, 200)) }}</p>
+                        <div
+                            class="posts__footer flex justify-between items-start  mt-4 md:flex-row flex-col md:items-center">
+                            <div class="flex gap-2">
+                                <small class="block">{{ $post->created_at->diffForHumans() }}</small>
+                                <small class="block text-sm">
+                                    <i class="ri-chat-1-line"></i> {{ $post->comments()->count() }}
+                            </small>
+                            </div>
                         </div>
                     </div>
                 </a>
             @endforeach
         </section>
-        <section class="col-span-2 md:col-span-1 mt-8 bg-zinc-900 p-4 rounded-md h-max	">
+        <section class="col-span-2 md:col-span-1 mt-8  p-4 h-full border-l border-solid border-zinc-200">
             <h3 class="text-2xl font-bold">Mais Populares</h3>
             @foreach ($postCount as $post)
-                <a href="{{ route('blog.show', $post->slug) }}" class="posts__content border-b border-zinc-800 pb-2">
-                    <div class="bg-zinc-900 overflow-hidden">
-
-                        <h3 class="text-sm font-semibold text-white ">{{ $post->title }}</h3>
+                <a href="{{ route('blog.show', $post->slug) }}" class="posts__content border-b border-zinc-200 pb-2">
+                    <div class="overflow-hidden">
+                        <h3 class="text-sm font-semibold  ">{{ $post->title }}</h3>
                         <div class="posts__footer">
-                            <small class="text-xs">Post {{ $post->created_at->diffForHumans() }}</small>
+                            <small class="text-xs">{{ $post->created_at->diffForHumans() }}</small>
                             @if ($post->likes()->where('user_id', Auth::id())->exists())
                                 <i class="ri-heart-fill text-red-400"></i> {{ $post->likes()->count() }}
                                 {{ $post->likes()->count() > 1 ? 'Likes' : 'Like' }}

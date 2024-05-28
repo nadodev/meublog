@@ -52,6 +52,10 @@
                 {!! $portfolio->description !!}
                 <img src="{{ asset('storage/' . $portfolio->image) }}" />
             </div>
+            <div class="flex mt-4 gap-2">
+                <a class="uk-button uk-button-primary" href="{{ $portfolio->github ?? '#' }}">Github</a>
+                <a class="uk-button uk-button-default" href=" {{ $portfolio->site ?? '#' }}">Ver Site</a>
+            </div>
         </div>
         <div class="container">
 

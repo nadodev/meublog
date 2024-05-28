@@ -48,7 +48,7 @@
         <div>
             <div class="container">
                 <h2>{{ $portfolio->title }} </h2>
-                <span>{{ Carbon::parse($portfolio->created_at)->format('d-M-Y') }}</span>
+                <span>{{ Carbon::parse($portfolio->created_at)->format('M-d-Y') }}</span>
                 <p>I was contracted to work on the client project Just Trip for WeBOOST Australia. Working as the sole
                     designer, I closely collaborated with the client, project manager, and development team throughout the
                     entire process. Our main goal was to transform the existing WeChat Mini Program into native mobile apps

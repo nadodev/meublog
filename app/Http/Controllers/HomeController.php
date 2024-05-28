@@ -9,7 +9,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $portfolio = Portfolio::where('status','active')->get();
+        $portfolios = Portfolio::where('status', 'active')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
 
         return view('home.index', compact('portfolio'));
     }

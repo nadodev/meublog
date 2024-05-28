@@ -13,4 +13,12 @@ class HomeController extends Controller
 
         return view('home.index', compact('portfolio'));
     }
+
+    public function detalhe($slug)
+    {
+
+        $portfolio = Portfolio::where('slug', $slug)->first();
+
+        return view('home.detalhe', compact('portfolio'));
+    }
 }

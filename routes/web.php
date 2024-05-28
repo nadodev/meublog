@@ -30,7 +30,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/projeto/{slug}', [HomeController::class, 'detalhe'])->name('detalhe.index');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blog.category.show');

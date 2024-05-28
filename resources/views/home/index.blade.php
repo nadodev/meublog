@@ -153,9 +153,9 @@
             @endif
         </div>
     </div>
-    <div class="wrapper__footer">
+    {{-- <div class="wrapper__footer">
         <button class="uk-button uk-button-primary">Mais</button>
-    </div>
+    </div> --}}
     </div>
 
     </div>

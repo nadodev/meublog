@@ -126,11 +126,12 @@
             @if ($portfolio)
                 @foreach ($portfolio as $port)
                     <div class="card">
-                        <div class="card__header">
-                            <img src="{{ asset('storage/' . $port->image) }}" alt="Image Cover of the Wireframe project"
-                                height="188.44" width="380" loading="lazy">
-                        </div>
-                        <a href="{{ route('detalhe.index', $port->slug) }}" target="_blank" rel="noopener noreferrer">
+                        <a href="{{ route('detalhe.index', $port->slug) }}">
+                            <div class="card__header">
+                                <img src="{{ asset('storage/' . $port->image) }}" alt="Image Cover of the Wireframe project"
+                                    height="188.44" width="380" loading="lazy">
+                            </div>
+
                             <div class="card__footer">
                                 <div>
                                     <p class="font-black text-2xl font-zinc-900">{{ $port->title }}</p>

@@ -49,57 +49,14 @@
             <div class="container">
                 <h2>{{ $portfolio->title }} </h2>
                 <span>{{ Carbon::parse($portfolio->created_at)->format('M-d-Y') }}</span>
-                <p>I was contracted to work on the client project Just Trip for WeBOOST Australia. Working as the sole
-                    designer, I closely collaborated with the client, project manager, and development team throughout the
-                    entire process. Our main goal was to transform the existing WeChat Mini Program into native mobile apps
-                    with significantly enhanced usability and accessibility, while also giving the user interface a modern,
-                    clean makeover.
-
-                </p>
-                <img
-                    src="https://assets-global.website-files.com/63d9b458b2ca2e7c30fa75b2/63f5987a0fac871436c938b9_Just%20Trip%20-%20Screenshot%201-p-2000.webp" />
+                {!! $portfolio->description !!}
+                <img src="{{ asset('storage/' . $portfolio->image) }}" />
             </div>
         </div>
         <div class="container">
-            <div class="project__item">
-                <h3>Overview</h3>
-                <p>
-                    As the sole UX/UI designer for the project, I worked closely with the client and the project manager and
-                    developers from WeBOOST. I was responsible for:
-
-                </p>
-
-            </div>
 
             <div class="project__item">
-                <h3>My Role </h3>
-                <div>
-                    <li>UX Audit of the existing app </li>
-                    <li>Secondary research </li>
-                    <li>Wireframes </li>
-                    <li> Hi-fidelity UI design </li>
-                </div>
-            </div>
-            <div class="project__item">
-                <h3>Overview</h3>
-                <p>
-                    酱游Just Trip is bilingual travel app that enables you to travel the world on your own by offering
-                    in-depths guides, maps populated with thousands of places, GPS navigation(online & offline), in-app
-                    booking, user generated routes, etc!
-                </p>
-            </div>
-            <div class="container">
-
-                <img
-                    src="https://assets-global.website-files.com/63d9b458b2ca2e7c30fa75b2/63f5987a0fac871436c938b9_Just%20Trip%20-%20Screenshot%201-p-2000.webp" />
-            </div>
-            <div class="project__item">
-                <h3>Overview</h3>
-                <p>
-                    酱游Just Trip is bilingual travel app that enables you to travel the world on your own by offering
-                    in-depths guides, maps populated with thousands of places, GPS navigation(online & offline), in-app
-                    booking, user generated routes, etc!
-                </p>
+                {!! $portfolio->text !!}
             </div>
         </div>
     </section>

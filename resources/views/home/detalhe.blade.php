@@ -7,7 +7,7 @@
         <header class="header">
             <div class="container-2xl">
                 <div class="logo">
-                    <a href="#">
+                    <a href="{{ route('home.index') }}">
                         <p>showcasy.</p>
                     </a>
                 </div>

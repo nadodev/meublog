@@ -1,8 +1,9 @@
-
-
-
+@use 'components/site/header.scss';
+@use 'components/site/hero.scss';
+@use 'components/site/card.scss';
 @use 'base/base.scss';
 @use 'layout/home.scss';
+@use 'layout/site.scss';
 
 @tailwind base;
 @tailwind components;
@@ -13,23 +14,23 @@
 }
 
 h2:first-of-type {
-  @apply mt-8 mb-4;
+    @apply mt-8 mb-4;
 }
 
- h1 {
-    @apply text-4xl md:text-5xl  mb-2 font-black;
+h1 {
+    @apply text-4xl md:text-5xl mb-2 font-black;
 
- }
- h2 {
-    @apply text-3xl  md:text-4xl mb-2 font-black;
+}
 
- }
+h2 {
+    @apply text-3xl md:text-4xl mb-2 font-black;
 
- h3 {
+}
+
+h3 {
     @apply text-2xl md:text-3xl mb-2 font-black;
- }
+}
 
- p {
+p {
     @apply mb-4;
- }
-
+}

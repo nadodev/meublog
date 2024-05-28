@@ -1,7 +1,6 @@
 @use 'reset';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
 
-
 // CONTAINER VARIABLE
 $largureContainer: reset.toRem(1080); // Adicionar 40px no valor do container para uso de padding no responsivo
 
@@ -14,23 +13,26 @@ $ColorThree: #f0f0f0;
 $ColorTheme: rgb(29, 30, 32);
 
 :root {
-   --gradient-site: linear-gradient(to right, #094066 0%, #1a689f 100%);
-   font-size: 16px;
+    --gradient-site: linear-gradient(to right, #094066 0%, #1a689f 100%);
+    font-size: 16px;
 }
 
 /**/
 body {
-   background: $ColorThree;
-   font-family: 'source-serif-pro', serif;
-   line-height: 1.4;
-   font-weight: 300;
-   letter-spacing: 0px;
+    background: $ColorThree;
+    font-family: 'source-serif-pro', serif;
+    line-height: 1.4;
+    font-weight: 300;
+    letter-spacing: 0px;
 }
 
 body * {
-   font-family:'source-serif-pro', serif;
+    font-family: 'source-serif-pro', serif;
 }
-.shiki, .language-php, .language-javascript {
+
+.shiki,
+.language-php,
+.language-javascript {
     border-radius: 10px;
     padding: 20px;
     margin-top: 2rem;
@@ -41,17 +43,14 @@ body * {
 
     code {
 
-        color:#1a48b3;
+        color: #1a48b3;
     }
-}
-p {
-   font-size: reset.toRem(20);
 }
 
 
 .btn__voltar {
     margin-top: 20px;
-    padding:5px 20px;
+    padding: 5px 20px;
     background-color: rgb(46, 46, 51);
     display: inline-block;
     border-radius: 10px;
@@ -60,113 +59,113 @@ p {
 
 // DISPLAY FLEX
 @mixin FlexBetCen {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @mixin FlexCenCen {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 // BREAKPOINTS
 
 @mixin breakpoint($point) {
-   @if $point ==smashDesktopLarge {
-      @media screen and (max-width: 87.5rem) {
-         @content ;
-      }
+    @if $point ==smashDesktopLarge {
+        @media screen and (max-width: 87.5rem) {
+            @content ;
+        }
 
-      // 1400px
-   }
+        // 1400px
+    }
 
-   @else if $point ==smashDesktop {
-      @media (max-width: 75rem) {
-         @content ;
-      }
+    @else if $point ==smashDesktop {
+        @media (max-width: 75rem) {
+            @content ;
+        }
 
-      //1200px
-   }
+        //1200px
+    }
 
-   @else if $point ==smashLaptop {
-      @media (max-width: 64rem) {
-         @content ;
-      }
+    @else if $point ==smashLaptop {
+        @media (max-width: 64rem) {
+            @content ;
+        }
 
-      //1024px
-   }
+        //1024px
+    }
 
-   @else if $point ==smashTabletBig {
-      @media (max-width: 56.25rem) {
-         @content ;
-      }
+    @else if $point ==smashTabletBig {
+        @media (max-width: 56.25rem) {
+            @content ;
+        }
 
-      //900px
-   }
+        //900px
+    }
 
-   @else if $point ==smashTablet {
-      @media (max-width: 37.5rem) {
-         @content ;
-      }
+    @else if $point ==smashTablet {
+        @media (max-width: 37.5rem) {
+            @content ;
+        }
 
-      //600px
-   }
+        //600px
+    }
 
-   @else if $point ==smashMobile {
-      @media (max-width: 25rem) {
-         @content ;
-      }
+    @else if $point ==smashMobile {
+        @media (max-width: 25rem) {
+            @content ;
+        }
 
-      //400px
-   }
+        //400px
+    }
 
-   @else if $point ==smashContainer {
-      @media (max-width: $largureContainer) {
-         @content ;
-      }
-   }
+    @else if $point ==smashContainer {
+        @media (max-width: $largureContainer) {
+            @content ;
+        }
+    }
 }
 
 /*CONTAINER*/
 
 .container-2xl {
-   margin: 0 auto;
-   max-width: $largureContainer;
-   padding-left: 20px;
-   padding-right: 20px;
+    margin: 0 auto;
+    max-width: $largureContainer;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .swiper {
-   position: relative;
-   overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 // Scroll bar
 ::-webkit-scrollbar {
-   width: 8px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-   background: #ede4db;
+    background: #ede4db;
 }
 
 ::-webkit-scrollbar-thumb {
-   background: $ColorThree;
-   border-radius: 30px;
+    background: $ColorThree;
+    border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb:active {
-   background: $ColorMain;
+    background: $ColorMain;
 }
 
 .grecaptcha-badge {
-   visibility: collapse;
-   z-index: -9999;
+    visibility: collapse;
+    z-index: -9999;
 }
 
 .alert.alert-danger {
-   font-size: reset.toRem(14);
-   color: #d30202;
+    font-size: reset.toRem(14);
+    color: #d30202;
 }

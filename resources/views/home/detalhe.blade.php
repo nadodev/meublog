@@ -13,6 +13,9 @@
                 </div>
                 <nav>
                     <div class="menu">
+                        <a class="uk-button uk-button-ghost gap-2" href="/blog">
+                            Blog
+                        </a>
                         <a class="uk-button uk-button-primary gap-2"
                             href="https://wa.me/5549999195407?text=Ol%C3%A1%2C+estou+vindo+do+seu+portfolio" target="_blank"
                             rel="noopener noreferrer">

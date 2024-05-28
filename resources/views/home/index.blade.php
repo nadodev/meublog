@@ -10,7 +10,7 @@
                 </div>
                 <nav>
                     <div class="menu">
-                        <a class="uk-button uk-button-ghost gap-2" href="/blog" target="_blank" rel="noopener noreferrer">
+                        <a class="uk-button uk-button-ghost gap-2" href="/blog">
                             Blog
                         </a>
                         <a class="uk-button uk-button-primary gap-2"

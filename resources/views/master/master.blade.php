@@ -37,8 +37,7 @@
             <nav>
                 <ul class="flex gap-2 items-center">
                     <li>
-                        <a href="https://www.leonardogeja.com.br" target="_blank" no-referrer
-                            class="flex items-center gap-2">
+                        <a href="https://leonardogeja.com.br/" class="flex items-center gap-2">
                             <i class="ri-global-fill"></i>
                             <span class="text-1xl">Meu site</span>
                         </a>

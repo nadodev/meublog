@@ -127,7 +127,7 @@
                 @foreach ($portfolio as $port)
                     <div class="card">
                         <div class="card__header">
-                            <img src="{{ asset('storage' . $port->image) }}" alt="Image Cover of the Wireframe project"
+                            <img src="{{ asset('storage/' . $port->image) }}" alt="Image Cover of the Wireframe project"
                                 height="188.44" width="380" loading="lazy">
                         </div>
                         <a href="https://projeto-curso-html.vercel.app/" target="_blank" rel="noopener noreferrer">

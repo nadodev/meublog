@@ -123,66 +123,33 @@
         </div>
         <!-- card 1 -->
         <div class="wrapper__content">
-            <div class="card">
-                <div class="card__header">
-                    <img src="{{ asset('site/assets/img/portfolio/03.webp') }}" alt="Image Cover of the Wireframe project"
-                        height="188.44" width="380" loading="lazy">
-                </div>
-                <a href="https://projeto-curso-html.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <div class="card__footer">
-                        <div>
-                            <p class="font-black text-2xl font-zinc-900">Projeto Wireframe</p>
-                            <span class="text-1xl">Application made in HTML, it's a wireframe.</span>
+            @if ($portfolio)
+                @foreach ($portfolio as $port)
+                    <div class="card">
+                        <div class="card__header">
+                            <img src="{{ asset('storage' . $port->image) }}" alt="Image Cover of the Wireframe project"
+                                height="188.44" width="380" loading="lazy">
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
+                        <a href="https://projeto-curso-html.vercel.app/" target="_blank" rel="noopener noreferrer">
+                            <div class="card__footer">
+                                <div>
+                                    <p class="font-black text-2xl font-zinc-900">{{ $port->title }}</p>
+                                    <span class="text-1xl">
+                                        {!! $port->description !!}
+                                    </span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                </svg>
 
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="card">
-                <div class="card__header">
-                    <img src="{{ asset('site/assets/img/portfolio/03.webp') }}" alt="Image Cover of the Wireframe project"
-                        height="188.44" width="380" loading="lazy">
-                </div>
-                <a href="https://projeto-curso-html.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <div class="card__footer">
-                        <div>
-                            <p class="font-black text-2xl font-zinc-900">Projeto Wireframe</p>
-                            <span class="text-1xl">Application made in HTML, it's a wireframe.</span>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
-
-                    </div>
-                </a>
-            </div>
-            <div class="card">
-                <div class="card__header">
-                    <img src="{{ asset('site/assets/img/portfolio/03.webp') }}" alt="Image Cover of the Wireframe project"
-                        height="188.44" width="380" loading="lazy">
-                </div>
-                <a href="https://projeto-curso-html.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <div class="card__footer">
-                        <div>
-                            <p class="font-black text-2xl font-zinc-900">Projeto Wireframe</p>
-                            <span class="text-1xl">Application made in HTML, it's a wireframe.</span>
-                        </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                        </svg>
-
-                    </div>
-                </a>
-            </div>
+                @endforeach
+            @else
+            @endif
         </div>
     </div>
     <div class="wrapper__footer">

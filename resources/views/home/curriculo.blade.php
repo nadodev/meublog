@@ -1,16 +1,107 @@
 @extends('master.master-home')
 
 @section('content')
+<style>
+    .informacao-pessoal {
+        display: none;
+    }
+    #contentForPdf {
+            width: 100%;
+            margin: 0 auto;
+            background: #fff; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    @media print {
+        header, footer, #printButton, .menu, .imagem-cover, .btn-informacao, .projetos, .sobre {
+            display: none;
+        }
+
+        .informacao-pessoal {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        body {
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+        }
+
+        .hero__avatar img {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ccc; 
+        }
+
+        .container-2xl {
+            padding: 0;
+            margin: 0;
+        }
+
+        h2, h3 {
+            font-size: 16pt;
+            text-align: left;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 12pt;
+            margin-bottom: 10px;
+        }
+
+        .approch__item {
+            page-break-inside: avoid; 
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .informacao-pessoal ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .informacao-pessoal li {
+            margin-bottom: 5px;
+        }
+
+        .informacao-pessoal strong {
+            font-weight: bold;
+        }
+    }
+</style>
     <main>
         <header class="header">
             <div class="container-2xl">
                 <div class="logo">
-                    <a href="#">
-                        <p>Currículo de Leonardo Geja</p>
+                    <a href="/">
+                        <p>Leonardo Geja</p>
                     </a>
+                   
                 </div>
+                
                 <nav>
                     <div class="menu">
+                        <button id="printButton" class="uk-button uk-button-primary gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            Imprimir Currículo
+                        </button>
+                        <button id="downloadPdfButton" class="uk-button uk-button-primary gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>
+                            Baixar Currículo em PDF
+                        </button>
                         <a class="uk-button uk-button-ghost gap-2" href="/blog">Blog</a>
                         <a class="uk-button uk-button-primary gap-2"
                             href="https://wa.me/5549999195407?text=Ol%C3%A1%2C+estou+vindo+do+seu+portfolio" target="_blank"
@@ -22,21 +113,23 @@
                             </svg>
                             Vamos conversar?
                         </a>
+                       
                     </div>
                 </nav>
             </div>
         </header>
-        <section class="relative w-full h-[350px]">
+    <div id="contentForPdf"> 
+        <section class="imagem-cover relative w-full h-[350px]">
             <img src="https://media.licdn.com/dms/image/v2/D4D16AQFBzcGGYmyoZg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1725498789570?e=1746057600&v=beta&t=idJ14KL-anj_A7m9luYbuGL7Vxpq3V57ThCSwVN8O1U" alt="Fundo"
                 class="absolute top-0 left-0 w-full h-[350px] object-cover">
             <div class="hero__avatar absolute top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 sm:top-2/3 md:top-1/2 lg:top-[300px]">
                 <img src="https://github.com/nadodev.png" alt="Leonardo Geja" class="rounded-full border-4 border-gray-300 shadow-lg w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
             </div>
         </section>
-        <section class="hero bg-gray-100 ">
+        <section class="hero">
             <div class="container-2xl flex items-center justify-between">
                 <div class="hero__text ">
-                    <div class="flex">
+                    <div class="flex ">
                         <div class="w-full flex items-start flex-col justify-start">
                             <h2 class="text-4xl font-semibold text-gray-800 mb-2">Leoanrdo Geja</h2>
                            <div class="flex gap-4 justify-between w-full items-center"> 
@@ -51,11 +144,19 @@
                             </div>
 
                            </div>
-                           
-                           <p class="text-blue-600">Veja as <a href="#" id="openModalBtn" class=" underline">Informações de contato</a></p> 
+                           <ul class="list-none space-y-2 text-lg text-gray-700 informacao-pessoal">
+                            <li><strong class="font-semibold">Nome:</strong> Leonardo Geja</li>
+                            <li><strong class="font-semibold">Endereço:</strong> Rua Exemplo, 123, Cidade, Estado</li>
+                            <li><strong class="font-semibold">Telefone:</strong> (49) 99999-9999</li>
+                            <li><strong class="font-semibold">Email:</strong> <a href="mailto:leonardo.geja@email.com" class="text-blue-500 hover:text-blue-700">leonardo.geja@email.com</a></li>
+                            <li><strong class="font-semibold">LinkedIn:</strong> <a href="https://www.linkedin.com/in/leonardogeja" target="_blank" class="text-blue-500 hover:text-blue-700">linkedin.com/in/leonardogeja</a></li>
+                            <li><strong class="font-semibold">GitHub:</strong> <a href="https://github.com/leonardogeja" target="_blank" class="text-blue-500 hover:text-blue-700">github.com/leonardogeja</a></li>
+                        </ul>
+                           <p class="btn-informacao text-blue-600">Veja as <a href="#" id="openModalBtn" class=" underline">Informações de contato</a></p> 
                         </div>
                        
                     </div>
+                   <div class="sobre"> 
                     <h3 class="text-4xl font-semibold text-gray-800 mb-2 mt-4">Sobre</h3>
                     <p class="text-lg leading-relaxed text-gray-600">
                         Sou apaixonado por tecnologia e design, com experiência em desenvolvimento frontend e criação de
@@ -65,6 +166,8 @@
                         Sempre busco aprender novas tecnologias e tendências para me manter atualizado e oferecer o melhor
                         em minhas entregas.
                     </p>
+
+                   </div>
                 </div>
 
 
@@ -124,7 +227,7 @@
                 </div>
             </div>
         </section>
-        <section class="approch">
+        <section class="approch projetos">
             <div class="container-2xl">
                 <div class="approch__header flex flex-col md:flex-row items-center mb-6">
                     <h2 class="text-3xl font-bold text-gray-800">Projetos</h2>
@@ -161,6 +264,7 @@
             </ul>
         </div>
     </div>
+    </div>
     
     <footer class="footer py-8 bg-gray-900 text-white">
         <div class="container-2xl text-center">
@@ -168,27 +272,57 @@
             <p>Criado por Leonardo Geja</p>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
-        // Seleciona os elementos necessários
 const openModalBtn = document.getElementById('openModalBtn');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const modal = document.getElementById('modal');
 
-// Abre a modal ao clicar no botão
 openModalBtn.addEventListener('click', () => {
     modal.classList.remove('hidden');
 });
 
-// Fecha a modal ao clicar no botão de fechar
 closeModalBtn.addEventListener('click', () => {
     modal.classList.add('hidden');
 });
 
-// Fecha a modal ao clicar fora da área da modal
 window.addEventListener('click', (event) => {
     if (event.target === modal) {
         modal.classList.add('hidden');
     }
 });
     </script>
+    <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+<script>
+    document.getElementById('downloadPdfButton').addEventListener('click', function () {
+        const element = document.getElementById('contentForPdf');
+
+        const options = {
+            margin: [5, 10, 10, 5],
+            filename: 'Curriculo_Leonardo_Geja.pdf',
+            image: { type: 'jpeg', quality: 0.98 }, 
+            html2canvas: {
+                scale: 3,
+                useCORS: true, 
+                logging: true, 
+                scrollX: 0,
+                scrollY: 0,
+                windowWidth: element.scrollWidth, 
+                windowHeight: element.scrollHeight
+            },
+            jsPDF: {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'portrait',
+                compress: true 
+            }
+        };
+
+        html2pdf().set(options).from(element).save();
+    });
+</script>
 @endsection

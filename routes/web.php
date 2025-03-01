@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CurriculoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,3 +37,4 @@ Route::get('/projeto/{slug}', [HomeController::class, 'detalhe'])->name('detalhe
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blog.category.show');
+Route::get('/curriculo/detalhe', [CurriculoController::class, 'index'])->name('curriculo.index');

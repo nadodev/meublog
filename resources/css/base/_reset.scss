@@ -12,7 +12,8 @@ body {
     height: auto;
     min-height: 100%;
     font-size: 16px;
-    color: #242424;
+    color: rgb(53, 53, 53);
+    font-family: "Varela Round", sans-serif;
 }
 
 .tags {
@@ -141,6 +142,15 @@ body {
   ========================================
 */
 
+h1, h2, h4 ,h5, h6 {
+    color: #1d1d1d;
+}
+h3 {
+    color: #0d477e !important;
+}
+p {
+    color: #444444;
+}
 
 b,
 strong {

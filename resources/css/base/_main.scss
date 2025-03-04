@@ -20,15 +20,11 @@ $ColorTheme: rgb(29, 30, 32);
 /**/
 body {
     background: $ColorThree;
-    font-family: 'source-serif-pro', serif;
     line-height: 1.4;
     font-weight: 300;
     letter-spacing: 0px;
 }
 
-body * {
-    font-family: 'source-serif-pro', serif;
-}
 
 .shiki,
 .language-php,

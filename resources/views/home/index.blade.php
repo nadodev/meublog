@@ -5,7 +5,7 @@
             <div class="container-2xl">
                 <div class="logo">
                     <a href="#">
-                        <p>LeonardoGeja.</p>
+                        <p>LeoanrdoGeja.</p>
                     </a>
                 </div>
                 <nav>
@@ -47,7 +47,7 @@
             </div>
         </header>
         <!-- start hero section  -->
-        <section class="hero ">
+        <section class="hero">
             <div class="container-2xl">
                 <div class="hero__content">
                     <span class="subtitle">Olá! eu sou Leonardo Geja.</span>
@@ -118,7 +118,6 @@
         </section>
         <!-- end  approch section -->
     </main>
-    @if($existJobs)
     <div class="wrapper container-2xl">
         <div class="approch__header">
             <h2>Meus Trabalhos</h2>
@@ -156,7 +155,6 @@
             @endif
         </div>
     </div>
-    @endif
     {{-- <div class="wrapper__footer">
         <button class="uk-button uk-button-primary">Mais</button>
     </div> --}}
@@ -164,7 +162,7 @@
 
     </div>
 
-    <footer class="footer " @if(!$existJobs) style="margin-top:57px;" @endif>
+    <footer class="footer">
         <div class="container-2xl">
             <p>© 2025. Todos os direitos reservados - Leonardo Geja</p>
             <p>Criado por Leonardo Geja</p>

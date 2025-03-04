@@ -132,7 +132,7 @@
                 <img src="https://github.com/nadodev.png" alt="Leonardo Geja" class="rounded-full border-4 border-gray-300 shadow-lg w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48">
             </div>
         </section>
-        <section class="hero">
+        <section class="hero mt-[70px]">
             <div class="container-2xl flex items-center justify-between">
                 <div class="hero__text ">
                     <div class="flex ">

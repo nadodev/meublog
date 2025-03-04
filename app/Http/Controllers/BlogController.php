@@ -7,13 +7,17 @@ use Creativeorange\Gravatar\Facades\Gravatar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Spatie\LaravelMarkdown\MarkdownRenderer;
-use Spatie\ShikiPhp\Shiki;
 
 class BlogController extends Controller
 {
     public function index()
     {
+
+        $existBlog = Blog::count() > 0;
+
+        if(!$existBlog) {
+            return redirect()->back();
+        }
 
         $posts = Blog::orderBy('created_at', 'desc')->get();
         $categorias = Category::orderBy('created_at', 'asc')->get();

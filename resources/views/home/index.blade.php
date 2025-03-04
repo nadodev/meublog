@@ -5,14 +5,17 @@
             <div class="container-2xl">
                 <div class="logo">
                     <a href="#">
-                        <p>showcasy.</p>
+                        <p>LeonardoGeja.</p>
                     </a>
                 </div>
                 <nav>
                     <div class="menu">
+
+                        @if($existBlog) 
                         <a class="uk-button uk-button-ghost gap-2" href="/blog">
                             Blog
                         </a>
+                        @endif
                         <a class="uk-button uk-button-primary gap-2"
                             href="https://wa.me/5549999195407?text=Ol%C3%A1%2C+estou+vindo+do+seu+portfolio" target="_blank"
                             rel="noopener noreferrer">
@@ -44,7 +47,7 @@
             </div>
         </header>
         <!-- start hero section  -->
-        <section class="hero">
+        <section class="hero ">
             <div class="container-2xl">
                 <div class="hero__content">
                     <span class="subtitle">Olá! eu sou Leonardo Geja.</span>
@@ -115,6 +118,7 @@
         </section>
         <!-- end  approch section -->
     </main>
+    @if($existJobs)
     <div class="wrapper container-2xl">
         <div class="approch__header">
             <h2>Meus Trabalhos</h2>
@@ -152,6 +156,7 @@
             @endif
         </div>
     </div>
+    @endif
     {{-- <div class="wrapper__footer">
         <button class="uk-button uk-button-primary">Mais</button>
     </div> --}}
@@ -159,7 +164,7 @@
 
     </div>
 
-    <footer class="footer">
+    <footer class="footer " @if(!$existJobs) style="margin-top:57px;" @endif>
         <div class="container-2xl">
             <p>© 2025. Todos os direitos reservados - Leonardo Geja</p>
             <p>Criado por Leonardo Geja</p>

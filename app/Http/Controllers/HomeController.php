@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Blog;
 use App\Models\Portfolio;
 
 use Illuminate\Http\Request;
@@ -13,8 +15,10 @@ class HomeController extends Controller
         ->orderBy('id', 'desc')
         ->get();
 
+        $existBlog = Blog::count() > 0;
 
-        return view('home.index', compact('portfolio'));
+        $existJobs =  Portfolio::count() > 0;
+        return view('home.index', compact('portfolio', 'existBlog', 'existJobs'));
     }
 
     public function detalhe($slug)

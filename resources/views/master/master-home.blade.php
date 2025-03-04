@@ -9,6 +9,7 @@
     <meta name="description" property="og:description" content="Website portfolio pessoal, author: Leonardo Geja">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Leonardo Geja">
+  
     <meta name="twitter:card" content="player">
     <meta name="twitter:title" content="Meu Site Pessoal">
     <meta name="twitter:site" content="@www.leonardogeja.com.br">
@@ -29,7 +30,9 @@
     <link rel="stylesheet" href="{{ asset('dist/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/franken-ui-releases@0.0.12/dist/default.min.css" />
 
-
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('site/assets/img/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('site/assets/img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('site/assets/img/favicon-16x16.png') }}">
     <title>My showcase - Initial Page</title>
     <script type="application/ld+json">
     {

@@ -121,7 +121,11 @@
     <div class="wrapper container-2xl">
         <div class="approch__header">
             <h2>Meus Trabalhos</h2>
-            <span>Abaixo alguns dos meus trabalhos.</span>
+           @if($existJobs)
+           <span>Abaixo alguns dos meus trabalhos.</span>
+           @else 
+           <span>Sem trabalho cadastrado.</span>
+           @endif
         </div>
         <!-- card 1 -->
         <div class="wrapper__content">

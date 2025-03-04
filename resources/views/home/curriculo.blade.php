@@ -227,18 +227,18 @@
                 </div>
                 <div class="approch__wrapper grid grid-cols-1 md:grid-cols-1 gap-4">
                     <div class="approch__item p-6 border rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800">Estácio</h3>
-                        <span class="text-gray-400 text-sm">1 Fase</span>
-                        <p class="text-gray-700">Analise e desenvolvimento de sistemas</p>
+                        <h3 class="text-2xl font-bold text-gray-800">Estácio </h3>
+                        <span class="text-gray-400 text-sm">1 Fase - Andamento</span>
+                        <p class="text-gray-700">Tecnólogo: Analise e desenvolvimento de sistemas</p>
                     </div>
 
                 </div>
 
                 <div class="approch__wrapper grid grid-cols-1 md:grid-cols-1 gap-4">
                     <div class="approch__item p-6 border rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                        <h3 class="text-2xl font-bold text-gray-800">Unoesc</h3>
-                        <span class="text-gray-400 text-sm">3 Fase </span>
-                        <p class="text-gray-700">Graduação Direito</p>
+                        <h3 class="text-2xl font-bold text-gray-800">Universidade do Oeste de Santa Catarina (Unoesc)</h3>
+                        <span class="text-gray-400 text-sm">3 Fase - Andamento </span>
+                        <p class="text-gray-700">Bacharelado: Direito</p>
                     </div>
 
                 </div>

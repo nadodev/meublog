@@ -36,12 +36,19 @@ body {
     background-color: #F9F9F9;
     border: 1px solid #E5E5E5;
     overflow: auto;
-
-    code {
-
-        color: #1a48b3;
-    }
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
+
+.shiki code,
+.language-php code,
+.language-javascript code {
+    color: #1a48b3;
+}
+
 
 
 .btn__voltar {

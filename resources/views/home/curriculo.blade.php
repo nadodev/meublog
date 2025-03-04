@@ -273,11 +273,11 @@
         <h2 class="text-2xl font-semibold text-center mb-4">Informações de Contato</h2>
         <ul class="list-none space-y-2 text-gray-700">
             <li class=""><strong class="font-semibold text-md">Nome:</strong> Leonardo Geja</li>
-            <li class=""><strong class="font-semibold text-md">Endereço:</strong> Rua Exemplo, 123, Cidade, Estado</li>
-            <li class=""><strong class="font-semibold text-md">Telefone:</strong> (49) 99999-9999</li>
-            <li class=""><strong class="font-semibold text-md">Email:</strong> <a href="mailto:leonardo.geja@email.com" class="text-blue-500 hover:text-blue-700">leonardo.geja@email.com</a></li>
+            <li class=""><strong class="font-semibold text-md">Endereço:</strong> Rua Otávio Penteado, 14, Joaçaba, Santa Catarina</li>
+            <li class=""><strong class="font-semibold text-md">Telefone:</strong> (49) 99919-5407</li>
+            <li class=""><strong class="font-semibold text-md">Email:</strong> <a href="mailto:contato@leonardogeja.com.br" class="text-blue-500 hover:text-blue-700">contato@leonardogeja.com.br</a></li>
             <li class=""><strong class="font-semibold text-md">LinkedIn:</strong> <a href="https://www.linkedin.com/in/leonardogeja" target="_blank" class="text-blue-500 hover:text-blue-700">linkedin.com/in/leonardogeja</a></li>
-            <li class=""><strong class="font-semibold text-md">GitHub:</strong> <a href="https://github.com/leonardogeja" target="_blank" class="text-blue-500 hover:text-blue-700">github.com/leonardogeja</a></li>
+            <li class=""><strong class="font-semibold text-md">GitHub:</strong> <a href="https://github.com/nadodev" target="_blank" class="text-blue-500 hover:text-blue-700">github.com/nadodev</a></li>
         </ul>
     </div>
 </div>
